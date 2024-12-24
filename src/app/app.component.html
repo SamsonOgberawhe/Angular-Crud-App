@@ -17,56 +17,68 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
           <td mat-cell *matCellDef="let row"> {{row.id}} </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="firstname">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> FIRSTNAME </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Firstname </th>
           <td mat-cell *matCellDef="let row"> {{row.firstname}} </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="lastname">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> LASTNAME </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Lastname </th>
           <td mat-cell *matCellDef="let row"> {{row.lastname}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
           <td mat-cell *matCellDef="let row"> {{row.email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="dob">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> DOB </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Dob </th>
           <td mat-cell *matCellDef="let row"> {{row.dob | date}} </td>
         </ng-container>
 
         <ng-container matColumnDef="gender">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> GENDER </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
           <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
         </ng-container>
 
         <ng-container matColumnDef="education">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> EDUCATION </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Education </th>
           <td mat-cell *matCellDef="let row"> {{row.education}} </td>
         </ng-container>
 
         <ng-container matColumnDef="company">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
           <td mat-cell *matCellDef="let row"> {{row.company}} </td>
         </ng-container>
 
         <ng-container matColumnDef="experience">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> EXPERIENCE </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Experience </th>
           <td mat-cell *matCellDef="let row"> {{row.experience}} </td>
         </ng-container>
 
         <ng-container matColumnDef="package">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> PACKAGE </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Package </th>
           <td mat-cell *matCellDef="let row"> {{row.package | currency:'INR'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="openEditForm(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteEmployee(row.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
         </ng-container>
         <!-- Header and Row Definitions -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -5,6 +5,7 @@ import {EmployeeService} from "./services/employee.service";
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import {CoreService} from "./core/core.service";
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ export class AppComponent implements OnInit{
     'education',
     'company',
     'experience',
-    'package'
+    'package',
+    'action'
   ]
 
   dataSource = new MatTableDataSource<any>;
@@ -32,13 +34,36 @@ export class AppComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _dialog: MatDialog, private _empService: EmployeeService) {}
+  constructor(private _dialog: MatDialog,
+              private _empService: EmployeeService,
+              private _coreService: CoreService) {}
 
   ngOnInit(){
     this.getEmployees();
   }
   openAddEditDialog(){
-    this._dialog.open(EmpAddEditComponent);
+    const dialogRef = this._dialog.open(EmpAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if(val){
+          this.getEmployees();
+        }
+      }
+    })
+  }
+
+  openEditForm(data: any){
+    const dialogRef = this._dialog.open(EmpAddEditComponent, {
+      data: data
+    })
+
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if(val){
+          this.getEmployees();
+        }
+      }
+    })
   }
 
   getEmployees(){
@@ -52,6 +77,17 @@ export class AppComponent implements OnInit{
       error: (err => {
 
       })
+    })
+  }
+
+  deleteEmployee(id: string){
+    this._empService.deleteEmployee(id).subscribe({
+      next: (val) => {
+        // alert("Employee deleted!")
+        this._coreService.openSnackBar('Employee deleted!', 'Done')
+        this.getEmployees();
+      },
+      error: console.log
     })
   }
 

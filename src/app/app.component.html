@@ -3,3 +3,81 @@
   <span class="example-spacer"></span>
   <button mat-raised-button (click)="openAddEditDialog()">Add Employee</button>
 </mat-toolbar>
+
+<!--<div class="main-body">-->
+  <div class="main-body">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter by name or symbol">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> FIRSTNAME </th>
+          <td mat-cell *matCellDef="let row"> {{row.firstname}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="lastname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> LASTNAME </th>
+          <td mat-cell *matCellDef="let row"> {{row.lastname}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+          <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dob">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DOB </th>
+          <td mat-cell *matCellDef="let row"> {{row.dob | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> GENDER </th>
+          <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="education">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> EDUCATION </th>
+          <td mat-cell *matCellDef="let row"> {{row.education}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="company">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY </th>
+          <td mat-cell *matCellDef="let row"> {{row.company}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> EXPERIENCE </th>
+          <td mat-cell *matCellDef="let row"> {{row.experience}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="package">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> PACKAGE </th>
+          <td mat-cell *matCellDef="let row"> {{row.package | currency:'INR'}} </td>
+        </ng-container>
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+    </div>
+<!--</div>-->
+
+
+</div>
+

@@ -1,0 +1,75 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    },
+    {
+      "id": "6f5a",
+      "accountNumber": "MAR956712",
+      "transationType": {
+        "type": "Fund Credit",
+        "debitaccountno": "",
+        "creditaccountno": ""
+      },
+      "currency": "USD"
+    },
+    {
+      "id": "d52f",
+      "accountNumber": "MAR956712",
+      "transationType": {
+        "type": "Fund Credit",
+        "debitaccountno": "",
+        "creditaccountno": ""
+      },
+      "currency": "USD"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "id": "ce6a",
+      "firstname": "Samson",
+      "lastname": "Ogberawhe",
+      "email": "samsonogberawhe@gmail.com",
+      "dob": "2024-12-03T23:00:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Tesla",
+      "experience": 4,
+      "package": 1000
+    },
+    {
+      "id": "b1e0",
+      "firstname": "Johnson",
+      "lastname": "Blaine",
+      "email": "test@gmail.com",
+      "dob": "2024-12-11T23:00:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Jumia",
+      "experience": 7,
+      "package": 7
+    }
+  ]
+}
